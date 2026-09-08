@@ -1,6 +1,11 @@
 services:
   - type: web
     name: decant-lab
-    runtime: static
-    buildCommand: echo "Decant Lab V5 Pro"
-    staticPublishPath: .
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: MP_PUBLIC_KEY
+        sync: false
+      - key: MP_ACCESS_TOKEN
+        sync: false
