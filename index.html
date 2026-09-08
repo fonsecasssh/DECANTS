@@ -198,6 +198,25 @@ footer p{font-size:12px;color:#b6aea5;line-height:1.7}
  .notes-pyramid div:last-child{border-bottom:0}
 }
 
+
+.catalog-tools{display:flex;justify-content:space-between;gap:12px;margin-bottom:18px}
+.search-box{flex:1;max-width:520px;display:flex;align-items:center;background:#fbf8f2;border:1px solid #d9d0c3;padding:0 14px}
+.search-box input{width:100%;border:0;outline:0;background:transparent;padding:13px}
+.catalog-tools select{border:1px solid #d9d0c3;background:#fbf8f2;padding:0 14px}
+.niche-showcase{margin:20px max(24px,8vw) 0;background:#171512;color:white;padding:65px;display:grid;grid-template-columns:1.1fr .9fr;gap:60px;align-items:center}
+.niche-showcase h2{max-width:620px}.niche-showcase p:not(.eyebrow){color:#bdb5ab;line-height:1.75;max-width:620px}
+.niche-showcase .btn{background:#f4efe8;color:#171512;margin-top:12px}
+.niche-stats{display:grid;grid-template-columns:1fr;border-left:1px solid #3d3934}
+.niche-stats div{padding:20px 30px;border-bottom:1px solid #3d3934;display:flex;justify-content:space-between;align-items:center}
+.niche-stats strong{font-family:Georgia,"Times New Roman",serif;font-size:36px;color:#d0a768}.niche-stats span{font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:#aaa198}
+.discovery,.faq{padding:100px max(24px,8vw)}
+.kit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.kit-grid article{background:#fbf8f2;border:1px solid rgba(0,0,0,.06);padding:32px}
+.kit-grid span{font-size:11px;color:#9b7643}.kit-grid h3{margin:10px 0}.kit-grid p{color:#756e65}.kit-grid strong{display:block;margin-top:25px;font-size:18px}
+.faq details{border-top:1px solid #d9d0c3;padding:20px 0}.faq details:last-child{border-bottom:1px solid #d9d0c3}
+.faq summary{cursor:pointer;font-family:Georgia,"Times New Roman",serif;font-size:22px}.faq details p{color:#756e65;line-height:1.7;max-width:760px}
+@media(max-width:760px){.catalog-tools{flex-direction:column}.catalog-tools select{padding:13px}.niche-showcase{margin:10px 20px 0;padding:38px 24px;grid-template-columns:1fr}.niche-stats{border-left:0}.kit-grid{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -265,6 +284,20 @@ footer p{font-size:12px;color:#b6aea5;line-height:1.7}
         <p>Escolha sua fragrância e o tamanho ideal.</p>
       </div>
 
+
+      <div class="catalog-tools">
+        <div class="search-box">
+          <span>⌕</span>
+          <input id="catalogSearch" type="search" placeholder="Buscar perfume ou marca...">
+        </div>
+        <select id="catalogSort">
+          <option value="featured">Destaques</option>
+          <option value="priceAsc">Menor preço</option>
+          <option value="priceDesc">Maior preço</option>
+          <option value="name">A–Z</option>
+        </select>
+      </div>
+
       <div class="filters">
         <button class="filter active" data-filter="todos">Todos</button>
         <button class="filter" data-filter="masculino">Masculinos</button>
@@ -275,6 +308,33 @@ footer p{font-size:12px;color:#b6aea5;line-height:1.7}
       </div>
 
       <div class="product-grid" id="productGrid"></div>
+    </section>
+
+
+    <section class="niche-showcase">
+      <div>
+        <p class="eyebrow">ALTA PERFUMARIA</p>
+        <h2>Entre no universo dos nichos.</h2>
+        <p>Fragrâncias de casas especializadas, composições autorais e matérias-primas marcantes. Uma seleção para quem quer ir além dos perfumes mais conhecidos.</p>
+        <button class="btn btn-primary" onclick="document.querySelector('[data-filter=nicho]').click(); document.getElementById('catalogo').scrollIntoView()">Explorar nichos</button>
+      </div>
+      <div class="niche-stats">
+        <div><strong>8</strong><span>fragrâncias nicho</span></div>
+        <div><strong>2–10 ml</strong><span>para experimentar</span></div>
+        <div><strong>100%</strong><span>foco em descoberta</span></div>
+      </div>
+    </section>
+
+    <section class="discovery">
+      <div class="section-heading">
+        <div><p class="eyebrow">DISCOVERY KITS</p><h2>Experimente mais. Escolha melhor.</h2></div>
+        <p>Kits pensados para conhecer estilos diferentes sem precisar começar pelo frasco completo.</p>
+      </div>
+      <div class="kit-grid">
+        <article><span>01</span><h3>Kit Nicho Starter</h3><p>4 fragrâncias nicho × 2 ml.</p><strong>R$ 189,90</strong></article>
+        <article><span>02</span><h3>Kit Noite</h3><p>4 fragrâncias intensas × 2 ml.</p><strong>R$ 149,90</strong></article>
+        <article><span>03</span><h3>Kit Best Sellers</h3><p>5 dos mais procurados × 2 ml.</p><strong>R$ 159,90</strong></article>
+      </div>
     </section>
 
     <section class="how" id="como-funciona">
@@ -303,6 +363,15 @@ footer p{font-size:12px;color:#b6aea5;line-height:1.7}
         <span>“</span>
         <p>Você não precisa de cem mililitros para descobrir uma fragrância inesquecível.</p>
       </div>
+    </section>
+
+
+    <section class="faq">
+      <div class="section-heading"><div><p class="eyebrow">DÚVIDAS</p><h2>Perguntas frequentes</h2></div></div>
+      <details><summary>O que é um decant?</summary><p>É uma pequena quantidade da fragrância transferida para um frasco menor, permitindo experimentar o perfume antes de investir no frasco completo.</p></details>
+      <details><summary>Os frascos são originais da marca?</summary><p>O decant não é um frasco oficial da marca. A proposta é fracionar a fragrância original em atomizadores menores.</p></details>
+      <details><summary>Qual tamanho escolher?</summary><p>2 ml é ótimo para conhecer; 5 ml permite usar por mais tempo; 10 ml funciona bem para quem já gostou da fragrância ou quer levar em viagens.</p></details>
+      <details><summary>Como conservar meu decant?</summary><p>Mantenha longe de calor, umidade e luz solar direta, preferencialmente em local fresco e seco.</p></details>
     </section>
 
     <section class="newsletter">
@@ -373,7 +442,13 @@ const products = [
   {id:5, image:"https://sephora.in/media/catalog/product/3/6/3614272648425_1.jpg", niche:false, concentration:"Eau de Parfum", family:"Floral • Aromático • Baunilhado", description:"Contraste elegante entre lavanda aromática e flores brancas, finalizado por uma base cremosa e quente.", notesTop:"Lavanda", notesHeart:"Flor de laranjeira", notesBase:"Baunilha", brand:"Yves Saint Laurent", name:"Libre", category:"feminino", notes:"Lavanda, flor de laranjeira e baunilha", badge:"Elegante", prices:{"2ml":32.90,"5ml":64.90,"10ml":119.90}},
   {id:6, image:"https://media.landmarkshops.in/cdn-cgi/image/h=1125,w=1125,q=85,fit=cover/lifestyle/1000015046050-1000015046049_03-2100.jpg", niche:false, concentration:"Parfum", family:"Âmbar • Aromático • Amadeirado", description:"Intenso e sensual, traz lavanda aromática, riqueza balsâmica e uma base quente com nuances de mel e tabaco.", notesTop:"Menta e lavanda", notesHeart:"Benjoim", notesBase:"Fava tonka", brand:"Jean Paul Gaultier", name:"Le Male Elixir", category:"masculino", notes:"Lavanda, mel, tabaco e baunilha", badge:"Intenso", prices:{"2ml":29.90,"5ml":59.90,"10ml":109.90}},
   {id:7, image:"https://microperfumes.com/cdn/shop/files/Hacivat-Nishane-Retail-Bottle.jpg", niche:true, concentration:"Extrait de Parfum", family:"Cítrico • Frutado • Amadeirado", description:"Fresco e elegante, combina uma saída frutada vibrante com uma estrutura verde e amadeirada de grande personalidade.", notesTop:"Abacaxi e cítricos", notesHeart:"Notas verdes", notesBase:"Musgo e madeiras", brand:"Nishane", name:"Hacivat", category:"unissex", notes:"Abacaxi, musgo de carvalho e madeiras", badge:"Nicho", prices:{"2ml":49.90,"5ml":109.90,"10ml":199.90}},
-  {id:8, image:"https://i5.walmartimages.com/seo/Afnan-9pm-by-Afnan-Eau-De-Parfum-Spray-Unisex-3-4-oz-for-Men_4d89b859-12df-48c8-a8dd-d147967c550e.3d093d3d8b96916d75393c719916afbb.jpeg", niche:false, concentration:"Eau de Parfum", family:"Âmbar • Baunilhado • Aromático", description:"Doce e jovem, equilibra frutas, especiarias e baunilha. Ótimo custo-benefício para quem gosta de fragrâncias noturnas.", notesTop:"Maçã", notesHeart:"Canela e lavanda", notesBase:"Baunilha e âmbar", brand:"Afnan", name:"9PM", category:"arabe", notes:"Maçã, canela, lavanda e baunilha", badge:"Custo-benefício", prices:{"2ml":14.90,"5ml":27.90,"10ml":47.90}}
+  {id:8, image:"https://i5.walmartimages.com/seo/Afnan-9pm-by-Afnan-Eau-De-Parfum-Spray-Unisex-3-4-oz-for-Men_4d89b859-12df-48c8-a8dd-d147967c550e.3d093d3d8b96916d75393c719916afbb.jpeg", niche:false, concentration:"Eau de Parfum", family:"Âmbar • Baunilhado • Aromático", description:"Doce e jovem, equilibra frutas, especiarias e baunilha. Ótimo custo-benefício para quem gosta de fragrâncias noturnas.", notesTop:"Maçã", notesHeart:"Canela e lavanda", notesBase:"Baunilha e âmbar", brand:"Afnan", name:"9PM", category:"arabe", notes:"Maçã, canela, lavanda e baunilha", badge:"Custo-benefício", prices:{"2ml":14.90,"5ml":27.90,"10ml":47.90}},
+  {id:9, image:"https://www.johnlewis.com/creed-aventus-eau-de-parfum-120ml/p231555076", niche:true, concentration:"Eau de Parfum", family:"Frutado • Amadeirado • Fresco", description:"Um dos grandes ícones da perfumaria nicho, com saída frutada luminosa e uma base amadeirada elegante.", notesTop:"Bergamota e abacaxi", notesHeart:"Bétula e jasmim", notesBase:"Musgo e madeiras", brand:"Creed", name:"Aventus", category:"masculino", notes:"Abacaxi, bergamota, bétula e madeiras", badge:"Ícone nicho", prices:{"2ml":79.90,"5ml":179.90,"10ml":329.90}},
+  {id:10, image:"https://www.xerjoff.com/en-uk/collections/all", niche:true, concentration:"Eau de Parfum", family:"Aromático • Gourmand • Tabaco", description:"Lavanda e cítricos encontram mel, canela e tabaco em uma assinatura rica, refinada e extremamente reconhecível.", notesTop:"Bergamota e lavanda", notesHeart:"Mel e canela", notesBase:"Tabaco e baunilha", brand:"Xerjoff", name:"Naxos", category:"unissex", notes:"Lavanda, mel, canela, tabaco e baunilha", badge:"Best seller nicho", prices:{"2ml":59.90,"5ml":139.90,"10ml":259.90}},
+  {id:11, image:"", niche:true, concentration:"Eau de Parfum", family:"Aromático • Especiado • Amadeirado", description:"Elegante e envolvente, combina frescor aromático, especiarias e uma base cremosa de baunilha e madeiras.", notesTop:"Bergamota e lavanda", notesHeart:"Maçã e especiarias", notesBase:"Baunilha e madeiras", brand:"Parfums de Marly", name:"Layton", category:"unissex", notes:"Bergamota, maçã, lavanda, baunilha e madeiras", badge:"Luxo nicho", prices:{"2ml":59.90,"5ml":139.90,"10ml":259.90}},
+  {id:12, image:"https://monzauae.com/products/cedrat-boise", niche:true, concentration:"Eau de Parfum", family:"Cítrico • Frutado • Amadeirado", description:"Versátil e moderno, abre com cítricos e groselha preta e evolui para madeiras, couro, baunilha e musk.", notesTop:"Cítricos e groselha", notesHeart:"Patchouli e especiarias", notesBase:"Cedro, couro e baunilha", brand:"Mancera", name:"Cedrat Boise", category:"unissex", notes:"Cítricos, groselha preta, cedro, couro e baunilha", badge:"Versátil", prices:{"2ml":29.90,"5ml":69.90,"10ml":119.90}},
+  {id:13, image:"https://www.fragrantica.com/perfume/Amouage/Reflection-Man-920.html", niche:true, concentration:"Eau de Parfum", family:"Floral • Amadeirado • Aromático", description:"Uma composição masculina refinada, limpa e sofisticada, construída em torno de flores brancas e madeiras.", notesTop:"Alecrim e pimenta rosa", notesHeart:"Neroli e jasmim", notesBase:"Sândalo e cedro", brand:"Amouage", name:"Reflection Man", category:"masculino", notes:"Neroli, jasmim, sândalo e cedro", badge:"Alta perfumaria", prices:{"2ml":69.90,"5ml":159.90,"10ml":299.90}},
+  {id:14, image:"", niche:true, concentration:"Eau de Parfum", family:"Âmbar • Especiado • Gourmand", description:"Quente, sedutor e intenso, construído para quem procura uma fragrância noturna de grande personalidade.", notesTop:"Especiarias", notesHeart:"Rum e canela", notesBase:"Tabaco e baunilha", brand:"Initio", name:"Side Effect", category:"unissex", notes:"Rum, canela, tabaco e baunilha", badge:"Noturno", prices:{"2ml":79.90,"5ml":179.90,"10ml":339.90}}
 ];
 
 let cart = [];
@@ -387,13 +462,25 @@ const overlay = document.getElementById("cartOverlay");
 
 function money(v){ return v.toLocaleString("pt-BR",{style:"currency",currency:"BRL"}); }
 
-function renderProducts(filter="todos"){
-  const list = filter === "todos" ? products : products.filter(p => filter === "nicho" ? p.niche : p.category === filter);
+let currentFilter = "todos";
+let currentSearch = "";
+let currentSort = "featured";
+
+function renderProducts(filter=currentFilter){
+  currentFilter = filter;
+  let list = filter === "todos" ? [...products] : products.filter(p => filter === "nicho" ? p.niche : p.category === filter);
+  if(currentSearch){
+    const q = currentSearch.toLowerCase();
+    list = list.filter(p => `${p.brand} ${p.name} ${p.family} ${p.notes}`.toLowerCase().includes(q));
+  }
+  if(currentSort === "priceAsc") list.sort((a,b)=>a.prices["2ml"]-b.prices["2ml"]);
+  if(currentSort === "priceDesc") list.sort((a,b)=>b.prices["2ml"]-a.prices["2ml"]);
+  if(currentSort === "name") list.sort((a,b)=>a.name.localeCompare(b.name));
   grid.innerHTML = list.map(p => `
     <article class="product-card" onclick="openProduct(${p.id}, event)">
-      <div class="product-image">
+      <div class="product-image ${!p.image ? "image-error" : ""}">
         <span class="product-badge">${p.niche ? "NICHO • " : ""}${p.badge}</span>
-        <img src="${p.image}" alt="${p.brand} ${p.name}" loading="lazy"
+        <img src="${p.image}" alt="${p.brand} ${p.name}" loading="lazy" style="${!p.image ? "display:none" : ""}"
              onerror="this.style.display='none'; this.parentElement.classList.add('image-error')">
       </div>
       <div class="product-info">
@@ -461,6 +548,16 @@ function closeCart(){ drawer.classList.remove("open"); overlay.classList.remove(
 document.getElementById("openCart").addEventListener("click",openCart);
 document.getElementById("closeCart").addEventListener("click",closeCart);
 overlay.addEventListener("click",closeCart);
+
+
+document.getElementById("catalogSearch").addEventListener("input", e=>{
+  currentSearch = e.target.value.trim();
+  renderProducts();
+});
+document.getElementById("catalogSort").addEventListener("change", e=>{
+  currentSort = e.target.value;
+  renderProducts();
+});
 
 document.querySelectorAll(".filter").forEach(btn=>{
   btn.addEventListener("click",()=>{

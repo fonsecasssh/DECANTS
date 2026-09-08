@@ -2,5 +2,5 @@ services:
   - type: web
     name: decant-lab
     runtime: static
-    buildCommand: echo "Decant Lab V3"
+    buildCommand: echo "Decant Lab V4"
     staticPublishPath: .
