@@ -1,13 +1,6 @@
 services:
   - type: web
-    runtime: static
     name: decant-lab
+    runtime: static
     buildCommand: echo "Decant Lab - static site"
-    staticPublishPath: ./public
-    headers:
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
+    staticPublishPath: .
